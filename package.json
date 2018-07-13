@@ -2,14 +2,19 @@
   "name": "tweego-setup",
   "version": "1.0.0",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
-  "main": "index.js",
+  "main": "./dist/index.html",
+  "config": { "format": "sugarcube-2" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "open": "opn",
     "gulp": "gulp",
-    "build": "gulp build && tweego --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
     "lint": "gulp lint",
-    "tweegobuild": "tweego --head=src/HEAD.html -o dist/index.html project"
+    "build": "gulp build && tweego -f $npm_package_config_format --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
+    "testmode": "gulp build && tweego -f $npm_package_config_format -t --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
+    "tweegobuild": "tweego -f $npm_package_config_format --head=src/HEAD.html -o dist/index.html project",
+    "build-win": "gulp build && tweego -f %npm_package_config_format% --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
+    "testmode-win": "gulp build && tweego -f %npm_package_config_format% -t --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
+    "tweegobuild-win": "tweego -f %npm_package_config_format% --head=src/HEAD.html -o dist/index.html project"
   },
   "keywords": [
     "twine",
