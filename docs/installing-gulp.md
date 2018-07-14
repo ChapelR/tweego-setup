@@ -1,6 +1,6 @@
 ## Installing Gulp (Optional)
 
-Th core of this build system is based on the task-runner Gulp, which just makes things a little smoother for us.  This setup uses Gulp locally already, but if you want to mess around with it more, you'll probably want to globally install it.  You can do so with the following command:
+The core of this build system is based on the task-runner Gulp, which just makes things a little smoother for us.  This setup uses Gulp locally already, but if you want to mess around with it more, you'll probably want to globally install it.  You can do so with the following command:
 
 `npm install --global gulp`
 

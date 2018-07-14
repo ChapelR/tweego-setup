@@ -63,3 +63,7 @@ Back in the Environment Variables window, click `New`.
 Set the variable name to `TWEEGO_PATH` and the value to the path that leads to your `story-formats` folder.  If you set it up the same way I did, that path will be `C:\tweego\story-formats`
 
 ![alt text](https://i.imgur.com/vJrHaLe.png)
+
+### Step 5: Testing Tweego
+
+Open a command prompt and type `tweego`.  If the command is unrecognized, something was messed up, otherwise, an explanation of tweego should print out.  Type in `tweego --list-formats` to make sure you've installed all the formats correctly and set up `TWEEGO_PATH` correctly.  It should display all the formats you have in your `story-formats` directory.

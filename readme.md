@@ -2,6 +2,8 @@
 
 This is the basic setup I use for creating Tweego projects.  It's here so I can clone it when I need it, but you may find it useful, too.
 
+For information on why you may want to use this repo, [look here](docs/why-use-this.md).
+
 ### Installing
 
 You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweego.md) installed.  Click the links to find my step-by-step instructions (with pictures) on how to do this on Windows systems.  You will need to combine my instructions with a bit of Googling to get these working on other OSes.  You may also wish to globally install [Gulp](docs/installing-gulp.md), but this is optional.
@@ -14,7 +16,7 @@ There are four main folders that you'll be working with here.  The first is the 
 
 The `project` folder is where you'll edit your passages, and only your passages.  Your JavaScript and CSS code will wind up here eventually, but you won't write it here--just ignore the `project/styles` and `project/scripts` folders entirely.
 
-The `src` folder is where your custom JavaScript and CSS code will go.  Place JavaScript files in the `src/scripts` folder, and make sure they have the extension `.js`.  Place your CSS files in the `src/styles` folder and make sure they have the extension `.css`.  Files in these folders will be concatenated, minified, and (for CSS) autoprefixed, then sent to the `project` folder to be picked up by Tweego.  Also, only JavaScipt files in the `src/scripts` folder will be linted when you run the linter.
+The `src` folder is where your custom JavaScript and CSS code will go.  Place JavaScript files in the `src/scripts` folder, and make sure they have the extension `.js`.  Place your CSS files in the `src/styles` folder and make sure they have the extension `.css`.  Files in these folders will be concatenated, minified, (for JS) transpiled, and (for CSS) autoprefixed, then sent to the `project` folder to be picked up by Tweego.  Also, only JavaScipt files in the `src/scripts` folder will be linted when you run the linter.
 
 The `vendor` folder is a place to put code that comes from other people.  For example, if you were using an add-on from the SugarCube site, or one of my custom macros, you'd paste the CSS and JS files in here.  You can mix them together; you don't need to use seperate folders for the CSS and JS files.
 
@@ -94,4 +96,4 @@ The `src/config.json` file contains configuration options you may want to alter.
 
 The first four options here tell the build process where to find your scripts and styles.  You can change the locations of your folders around using these options.  You can also change these options to arrays of strings that resolve to individual file paths to load your code in a specific order--the default order is whatever your OS uses (usually alphanumeric).
 
-The second chunk of options allows you to change where built scripts should be put and what their file names should be. 
+The second chunk of options allows you to change where built scripts should be put and what their file names should be.
