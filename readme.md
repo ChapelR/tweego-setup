@@ -49,3 +49,49 @@ If you're on a Windows OS, a number of batch files are included to run these scr
 * `build-test.bat`: Runs `npm run testmode-win` for you.
 * `format.bat`: Lets you quickly see what formats Tweego has access to and change between them.  Roughly equivalent to `npm config set tweego-setup:format NAME` but more user-friendly.
 * `lint.bat`: Runs `npm run lint` for you.
+
+### Configuration Settings:
+
+The `src/config.json` file contains configuration options you may want to alter.  It looks like this:
+
+```json
+{
+    "javascript": {
+        "minify": true,
+        "transpile": true
+    },
+    "css": {
+        "minify": true,
+        "autoprefix": true
+    },
+    "directories": {
+        "user-js": "./src/scripts/**/*.js",
+        "user-css": "./src/styles/**/*.css",
+        "vendor-js": "./vendor/**/*.js",
+        "vendor-css": "./vendor/**/*.css",
+        
+        "out-js": "./project/scripts",
+        "out-css": "./project/styles",
+        "vendor-file-js": "bundle.min.js",
+        "vendor-file-css": "bundle.min.css",
+        "user-file-js": "user.min.js",
+        "user-file-css": "user.min.css"
+    }
+}
+```
+
+**JavaScript Options:**
+
+* `minify`: set this to `false` if you don't want your scripts to be minified.
+* `transpile`: if you write code in ES6 syntax, it is automatically transpiled to ES5 giving you better browser support.  you can shut this feature off.  note that doing so may cause the minifier to stop working.
+
+**CSS Options:**
+
+* `minify`: set this to `false` if you don't want your CSS to be minified.
+* `autoprefix`: vendor prefixes will be automatically added for you to maximize browser support.  you can shut this off if you want to.
+
+**Directory Options:**
+
+The first four options here tell the build process where to find your scripts and styles.  You can change the locations of your folders around using these options.  You can also change these options to arrays of strings that resolve to individual file paths to load your code in a specific order--the default order is whatever your OS uses (usually alphanumeric).
+
+The second chunk of options allows you to change where built scripts should be put and what their file names should be. 

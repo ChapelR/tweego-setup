@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "./dist/index.html",
-  "config": { "format": "sugarcube-2" },
+  "config": {
+    "format": "sugarcube-2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "open": "opn",
@@ -24,11 +26,15 @@
   "author": "Chapel",
   "license": "Unlicense",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.53",
+    "babel-preset-env": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^8.0.0-beta.2",
     "gulp-clean-css": "^3.9.4",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.1.0",
+    "gulp-noop": "^1.0.0",
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
     "opn-cli": "^3.1.0"

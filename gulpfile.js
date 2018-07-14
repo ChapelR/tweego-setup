@@ -1,40 +1,45 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    babel = require('gulp-babel'),
     clean = require('gulp-clean-css'),
     autoprefix = require('gulp-autoprefixer'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    noop = require('gulp-noop'),
+    config = require('./src/config.json');
 
 function processScripts (dir, out, name) {
     return gulp.src(dir)
         .pipe(concat(name))
-        .pipe(uglify().on('error', function(e){
+        .pipe(config.javascript.transpile ? babel() : noop())
+        .pipe(config.javascript.minify ? uglify().on('error', function(e){
             console.log(e);
-        }))
+        }) : noop())
         .pipe(gulp.dest(out));
 }
 
 function processStyles (dir, out, name) {
     return gulp.src(dir)
         .pipe(concat(name))
-        .pipe(clean())
-        .pipe(autoprefix())
+        .pipe(config.css.minify ? clean() : noop())
+        .pipe(config.css.autoprefix ? autoprefix() : noop())
         .pipe(gulp.dest(out));
 }
 
 // linting 
 function lint () {
-    return gulp.src('./src/scripts/**/*.js')
+    return gulp.src(config.directories['user-js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default', { beep : true }));
 }
 
 // build function
 function build () {
-    processScripts('./vendor/**/*.js', './project/scripts', 'bundle.min.js');
-    processScripts('./src/scripts/**/*.js', './project/scripts', 'user.min.js');
-    processStyles('./vendor/**/*.css', './project/styles', 'bundle.min.css');
-    processScripts('./src/styles/**/*.css', './project/styles', 'user.min.css');
+    var dir = config.directories;
+    processScripts(dir['vendor-js'], dir['out-js'], dir['vendor-file-js']);
+    processScripts(dir['user-js'], dir['out-js'], dir['user-file-js']);
+    processStyles(dir['vendor-css'], dir['out-css'], dir['vendor-file-css']);
+    processStyles(dir['user-css'], dir['out-css'], dir['user-file-css']);
 }
 
 // tasks
