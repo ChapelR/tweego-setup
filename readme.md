@@ -4,6 +4,8 @@ This is the basic setup I use for creating Tweego projects.  It's here so I can 
 
 For information on why you may want to use this repo, [look here](docs/why-use-this.md).
 
+**Note**: Before publishing a story, you'll want to change the ifid in the `project/twee/compiler-options.twee` file.  If you delete it and try to build, Tweego will spit out a new one for you.
+
 ### Installing
 
 You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweego.md) installed.  Click the links to find my step-by-step instructions (with pictures) on how to do this on Windows systems.  You will need to combine my instructions with a bit of Googling to get these working on other OSes.  You may also wish to globally install [Gulp](docs/installing-gulp.md), but this is optional.
@@ -22,7 +24,7 @@ The `vendor` folder is a place to put code that comes from other people.  For ex
 
 Finally, there's the `HEAD.html` file.  You can add HTML code to your project's `<head>` using this file.  If you don't need it, just leave it blank.
 
-Tip: If you're using a JavaScipt library that was desgined for the web, you may want place it in the `dist` folder and link to it in the `HEAD.html` file.  You can also include it in your `vendor` scripts, but it may need a wrapper like this to persuade it to work:
+Tip: If you're using a JavaScipt library that was designed for the web, you may want place it in the `dist` folder and link to it in the `HEAD.html` file.  You can also include it in your `vendor` scripts, but it may need a wrapper like this to persuade it to work:
 
 ```javascript
 (function (define, exports) {
