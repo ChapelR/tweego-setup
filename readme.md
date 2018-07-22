@@ -27,7 +27,7 @@ Finally, there's the `HEAD.html` file.  You can add HTML code to your project's 
 Tip: If you're using a JavaScipt library that was designed for the web, you may want place it in the `dist` folder and link to it in the `HEAD.html` file.  You can also include it in your `vendor` scripts, but it may need a wrapper like this to persuade it to work:
 
 ```javascript
-(function (define, exports) {
+(function (define, module, exports) {
 
     /* library code goes here */
 
