@@ -1,6 +1,6 @@
 ## Installing Tweego
 
-If you're using a 64-bit version of Windows, you can use [this installer](https://github.com/ChapelR/tweego-installer/releases) to set up Tweego instead of installing it manually. A 32-bit version will eventually be released as well. If you cannot use said installer or prefer to set it up manually, carry on with these instructions.
+On most versions of Windows, you can use [this installer](https://github.com/ChapelR/tweego-installer/releases) to set up Tweego instead of installing it manually. If you cannot use said installer or prefer to set it up manually, carry on with these instructions.
 
 Installing Tweego globally is probably your best bet.  You can also install it locally, which has some benefits.  I won't cover the latter right now, but it may be added in the future.
 
