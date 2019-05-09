@@ -9,12 +9,12 @@ var gulp = require('gulp'),
     config = require('./src/config.json');
 
 function processScripts (dir, out, name) {
+    console.log(dir, out, name);
     return gulp.src(dir)
         .pipe(concat(name))
         .pipe(config.javascript.transpile ? babel() : noop())
-        .pipe(config.javascript.minify ? uglify().on('error', function(e){
-            console.log(e);
-        }) : noop())
+        .pipe(config.javascript.minify ? 
+            uglify().on('error', (e) => {console.log(e);}) : noop())
         .pipe(gulp.dest(out));
 }
 
@@ -34,14 +34,24 @@ function lint () {
 }
 
 // build function
-function build () {
+function compile (what) {
     var dir = config.directories;
-    processScripts(dir['vendor-js'], dir['out-js'], dir['vendor-file-js']);
-    processScripts(dir['user-js'], dir['out-js'], dir['user-file-js']);
-    processStyles(dir['vendor-css'], dir['out-css'], dir['vendor-file-css']);
-    processStyles(dir['user-css'], dir['out-css'], dir['user-file-css']);
+    switch (what) {
+        case 'vendor-js':
+            return processScripts(dir['vendor-js'], dir['out-js'], dir['vendor-file-js']);
+        case 'vendor-css':
+            return processStyles(dir['vendor-css'], dir['out-css'], dir['vendor-file-css']);
+        case 'user-js':
+            return processScripts(dir['user-js'], dir['out-js'], dir['user-file-js']);
+        case 'user-css':
+            return processStyles(dir['user-css'], dir['out-css'], dir['user-file-css']);
+    }
 }
 
 // tasks
-gulp.task('build', build);
+gulp.task('vendorJS', () => compile('vendor-js'));
+gulp.task('vendorCSS', () => compile('vendor-css'));
+gulp.task('userJS', () => compile('user-js'));
+gulp.task('userCSS', () => compile('user-css'));
+gulp.task('build', gulp.parallel('vendorJS', 'userJS', 'vendorCSS', 'userCSS'));
 gulp.task('lint', lint);
