@@ -1,5 +1,8 @@
 ## Basic Tweego Setup
 
+- [Changelog](docs/changelog.md)  
+- [Updating Instructions](docs/updating.md)
+
 This is the basic setup I use for creating Tweego projects.  It's here so I can clone it when I need it, but you may find it useful, too.
 
 For information on why you may want to use this repo, [look here](docs/why-use-this.md).
@@ -8,7 +11,7 @@ For information on why you may want to use this repo, [look here](docs/why-use-t
 
 ### Installing
 
-You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweego.md) installed.  Click the links to find my step-by-step instructions (with pictures) on how to do this on Windows systems.  You will need to combine my instructions with a bit of Googling to get these working on other OSes.  You may also wish to globally install [Gulp](docs/installing-gulp.md), but this is optional.
+You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweego.md) installed.  Click the links to find my step-by-step instructions (with pictures) on how to do this on Windows systems.  You will need to combine my instructions with a bit of Googling to get these working on other OSes.  You may also wish to globally install [Gulp](docs/installing-gulp.md) (v4.0.0 or later), but this is optional.
 
 After getting all that squared away, clone or download this repo.  Open a command prompt and navigate to the repo's root directory (where the `package.json` file is) and run the command `npm install`.  This may take a couple of minutes, just let it go.  After that, everything should be ready to go.
 
@@ -99,3 +102,9 @@ The `src/config.json` file contains configuration options you may want to alter.
 The first four options here tell the build process where to find your scripts and styles.  You can change the locations of your folders around using these options.  You can also change these options to arrays of strings that resolve to individual file paths to load your code in a specific order--the default order is whatever your OS uses (usually alphanumeric).
 
 The second chunk of options allows you to change where built scripts should be put and what their file names should be.
+
+### Donations
+
+Note: I suggest donating to [Twine development](https://www.patreon.com/klembot) or [SugarCube development](https://www.patreon.com/thomasmedwards) if you really want to help out, but I'd welcome a few dollars if you feel like it.
+
+[![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/F1F8IC35)

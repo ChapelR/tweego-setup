@@ -1,15 +1,14 @@
-var gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    babel = require('gulp-babel'),
-    clean = require('gulp-clean-css'),
-    autoprefix = require('gulp-autoprefixer'),
-    jshint = require('gulp-jshint'),
-    noop = require('gulp-noop'),
-    config = require('./src/config.json');
+const gulp       = require('gulp'),
+      concat     = require('gulp-concat'),
+      uglify     = require('gulp-uglify'),
+      babel      = require('gulp-babel'),
+      clean      = require('gulp-clean-css'),
+      autoprefix = require('gulp-autoprefixer'),
+      jshint     = require('gulp-jshint'),
+      noop       = require('gulp-noop'),
+      config     = require('./src/config.json');
 
 function processScripts (dir, out, name) {
-    console.log(dir, out, name);
     return gulp.src(dir)
         .pipe(concat(name))
         .pipe(config.javascript.transpile ? babel() : noop())
@@ -35,7 +34,7 @@ function lint () {
 
 // build function
 function compile (what) {
-    var dir = config.directories;
+    const dir = config.directories;
     switch (what) {
         case 'vendor-js':
             return processScripts(dir['vendor-js'], dir['out-js'], dir['vendor-file-js']);
