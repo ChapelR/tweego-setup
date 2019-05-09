@@ -1,1 +1,0 @@
-window.test = function () { return typeof setup === 'object'; };
