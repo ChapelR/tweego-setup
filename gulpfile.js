@@ -6,12 +6,19 @@ const gulp       = require('gulp'),
       autoprefix = require('gulp-autoprefixer'),
       jshint     = require('gulp-jshint'),
       noop       = require('gulp-noop'),
-      config     = require('./src/config.json');
+      config     = require('./src/config.json'),
+      browsers   = config.broswers;
 
 function processScripts (dir, out, name) {
     return gulp.src(dir)
         .pipe(concat(name))
-        .pipe(config.javascript.transpile ? babel() : noop())
+        .pipe(config.javascript.transpile ? babel({
+            presets : [
+                ['@babel/preset-env', {
+                    targets : browsers
+                }]
+            ]
+        }) : noop())
         .pipe(config.javascript.minify ? 
             uglify().on('error', (e) => {console.log(e);}) : noop())
         .pipe(gulp.dest(out));
@@ -21,7 +28,9 @@ function processStyles (dir, out, name) {
     return gulp.src(dir)
         .pipe(concat(name))
         .pipe(config.css.minify ? clean() : noop())
-        .pipe(config.css.autoprefix ? autoprefix() : noop())
+        .pipe(config.css.autoprefix ? autoprefix({
+            browsers
+        }) : noop())
         .pipe(gulp.dest(out));
 }
 

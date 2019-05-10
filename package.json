@@ -1,6 +1,6 @@
 {
   "name": "tweego-setup",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "./dist/index.html",
   "config": {
@@ -27,6 +27,7 @@
   "license": "Unlicense",
   "dependencies": {
     "@babel/core": "^7.4.4",
+    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.4.4",
     "babel-preset-env": "^1.7.0",
     "gulp": "^4.0.0",
