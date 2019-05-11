@@ -46,7 +46,8 @@ The following scripts are run from the command line.  Simply navigate to the pro
 * `npm run testmode` or `npm run testmode-win`: As `npm run build`, but compiles your story in test mode.
 * `npm run tweegobuild` or `npm run tweegobuild-win`: This command only runs the Tweego portion of the build process, so files from `src` aren't added in.  Useful for building faster when you're only working on TwineScript.
 * `npm run gulp build`: Only re-packages the JavaScript and CSS files, but does **not** actually compile the story.  Probably not useful.
-* `npm run lint`: Runs the JavaScript linter on any JavaScript files found in the `src/scripts` folder and reports the results for debugging.  You will want this if you do basically any coding in JavaScript at all, trust me.
+* `npm run lint` or `npm run lint-js`: Runs the JavaScript linter on any JavaScript files found in the `src/scripts` folder and reports the results for debugging.  You will want this if you do basically any coding in JavaScript at all, trust me.  
+* `npm run lint-css`: Runs the CSS linter, which tests for bugs and errors in your CSS files, similar to the JavaScript linter.
 
 ### Usage (batch files - Windows only)
 
@@ -55,7 +56,8 @@ If you're on a Windows OS, a number of batch files are included to run these scr
 * `build.bat`: Runs `npm run build-win` for you.
 * `build-test.bat`: Runs `npm run testmode-win` for you.
 * `format.bat`: Lets you quickly see what formats Tweego has access to and change between them.  Roughly equivalent to `npm config set tweego-setup:format NAME` but more user-friendly.
-* `lint.bat`: Runs `npm run lint` for you.
+* `lint-js.bat`: Runs `npm run lint-js` for you.
+* `lint-css.bat`: Runs `npm run lint-css` for you.
 
 ### Configuration Settings:
 
@@ -63,14 +65,17 @@ The `src/config.json` file contains configuration options you may want to alter.
 
 ```json
 {
+
     "javascript": {
         "minify": true,
         "transpile": true
     },
+
     "css": {
         "minify": true,
         "autoprefix": true
     },
+
     "directories": {
         "user-js": "./src/scripts/**/*.js",
         "user-css": "./src/styles/**/*.css",
@@ -79,11 +84,22 @@ The `src/config.json` file contains configuration options you may want to alter.
         
         "out-js": "./project/scripts",
         "out-css": "./project/styles",
+
         "vendor-file-js": "bundle.min.js",
         "vendor-file-css": "bundle.min.css",
         "user-file-js": "user.min.js",
         "user-file-css": "user.min.css"
-    }
+    },
+
+    "browsers": [
+        "> 1%",
+        "last 3 versions",
+        "last 10 Chrome versions",
+        "last 10 Firefox versions",
+        "IE >= 9",
+        "Opera >= 12"
+    ]
+    
 }
 ```
 
@@ -102,6 +118,10 @@ The `src/config.json` file contains configuration options you may want to alter.
 The first four options here tell the build process where to find your scripts and styles.  You can change the locations of your folders around using these options.  You can also change these options to arrays of strings that resolve to individual file paths to load your code in a specific order--the default order is whatever your OS uses (usually alphanumeric).
 
 The second chunk of options allows you to change where built scripts should be put and what their file names should be.
+
+**Browsers:**
+
+A list of target browsers, using [browserlist-style queries](https://github.com/browserslist/browserslist), that you want to target. This effects what the transpiler and autoprefixers do. The defaults set here are copied directly from SugarCube's browserlist, to maintain parity and avoid giving up any browser support, but you may want to change this.
 
 ### Donations
 

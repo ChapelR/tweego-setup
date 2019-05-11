@@ -1,6 +1,6 @@
 {
   "name": "tweego-setup",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "./dist/index.html",
   "config": {
@@ -11,6 +11,8 @@
     "open": "opn",
     "gulp": "gulp",
     "lint": "gulp lint",
+    "lint-js": "gulp lint",
+    "lint-css": "gulp validate",
     "build": "gulp build && tweego -f $npm_package_config_format --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
     "testmode": "gulp build && tweego -f $npm_package_config_format -t --head=src/HEAD.html -o dist/index.html project && opn dist/index.html",
     "tweegobuild": "tweego -f $npm_package_config_format --head=src/HEAD.html -o dist/index.html project",
@@ -35,6 +37,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
+    "gulp-csslint": "^1.0.1",
     "gulp-jshint": "^2.1.0",
     "gulp-noop": "^1.0.0",
     "gulp-uglify": "^3.0.2",

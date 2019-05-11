@@ -1,12 +1,15 @@
 {
+
     "javascript": {
         "minify": true,
         "transpile": true
     },
+
     "css": {
         "minify": true,
         "autoprefix": true
     },
+
     "directories": {
         "user-js": "./src/scripts/**/*.js",
         "user-css": "./src/styles/**/*.css",
@@ -15,11 +18,13 @@
         
         "out-js": "./project/scripts",
         "out-css": "./project/styles",
+
         "vendor-file-js": "bundle.min.js",
         "vendor-file-css": "bundle.min.css",
         "user-file-js": "user.min.js",
         "user-file-css": "user.min.css"
     },
+
     "browsers": [
         "> 1%",
         "last 3 versions",
@@ -28,4 +33,5 @@
         "IE >= 9",
         "Opera >= 12"
     ]
+    
 }

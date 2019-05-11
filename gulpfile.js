@@ -5,6 +5,7 @@ const gulp       = require('gulp'),
       clean      = require('gulp-clean-css'),
       autoprefix = require('gulp-autoprefixer'),
       jshint     = require('gulp-jshint'),
+      csslint    = require('gulp-csslint'),
       noop       = require('gulp-noop'),
       config     = require('./src/config.json'),
       browsers   = config.broswers;
@@ -41,6 +42,35 @@ function lint () {
         .pipe(jshint.reporter('default', { beep : true }));
 }
 
+function validator () {
+    return gulp.src(config.directories['user-css'])
+        .pipe(csslint({
+            'box-model' : false,
+            'adjoining-classes' : false,
+            'box-sizing' : false,
+            'compatible-vendor-prefixes' : false,
+            'gradients' : false,
+            'text-indent' : false,
+            'vendor-prefix' : false,
+            'fallback-colors' : false,
+            'bulletproof-font-face' : false,
+            'font-faces' : false, 
+            'import' : false,
+            'regex-selectors' : false,
+            'unqualified-attributes' : false,
+            'overqualified-elements' : false,
+            'shorthand' : false,
+            'duplicate-background-images' : false,
+            'floats' : false,
+            'font-sizes' : false,
+            'ids' : false,
+            'order-alphabetical' : false,
+            'qualified-headings' : false,
+            'unique-headings' : false
+        }))
+        .pipe(csslint.formatter());
+}
+
 // build function
 function compile (what) {
     const dir = config.directories;
@@ -63,3 +93,4 @@ gulp.task('userJS', () => compile('user-js'));
 gulp.task('userCSS', () => compile('user-css'));
 gulp.task('build', gulp.parallel('vendorJS', 'userJS', 'vendorCSS', 'userCSS'));
 gulp.task('lint', lint);
+gulp.task('validate', validator);
