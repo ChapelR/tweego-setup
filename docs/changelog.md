@@ -2,7 +2,7 @@
 
 ### v1.1.0
 
-Released: May X, 2019
+Released: May 13, 2019
 
 - Updated Babel presets and configuration to prevent issues with the `typeof` operator.  
 - Added `browsers` config option for authors to adjust the behavior of Babel / CSS auto-prefixing.
