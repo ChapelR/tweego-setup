@@ -28,9 +28,9 @@
   "author": "Chapel",
   "license": "Unlicense",
   "dependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
     "babel-preset-env": "^1.7.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^5.0.0",
