@@ -13,12 +13,12 @@
     "lint": "gulp lint",
     "lint-js": "gulp lint",
     "lint-css": "gulp validate",
-    "build": "gulp build && tweego -f $npm_package_config_format -m src/modules/ -o dist/index.html project && opn dist/index.html",
-    "testmode": "gulp build && tweego -f $npm_package_config_format -t -m src/modules/ -o dist/index.html project && opn dist/index.html",
-    "tweegobuild": "tweego -f $npm_package_config_format -m src/modules/ -o dist/index.html project",
-    "build-win": "gulp build && tweego -f %npm_package_config_format% -m src/modules/ -o dist/index.html project && opn dist/index.html",
-    "testmode-win": "gulp build && tweego -f %npm_package_config_format% -t -m src/modules/ -o dist/index.html project && opn dist/index.html",
-    "tweegobuild-win": "tweego -f %npm_package_config_format% -m src/modules/ -o dist/index.html project"
+    "build": "gulp build && tweego -f $npm_package_config_format -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project && opn dist/index.html",
+    "testmode": "gulp build && tweego -f $npm_package_config_format -t -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project && opn dist/index.html",
+    "tweegobuild": "tweego -f $npm_package_config_format -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project",
+    "build-win": "gulp build && tweego -f %npm_package_config_format% -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project && opn dist/index.html",
+    "testmode-win": "gulp build && tweego -f %npm_package_config_format% -t -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project && opn dist/index.html",
+    "tweegobuild-win": "tweego -f %npm_package_config_format% -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project"
   },
   "keywords": [
     "twine",
