@@ -25,11 +25,11 @@ The `project` folder is where you'll edit your passages, and only your passages.
 
 The `src` folder is where your custom JavaScript and CSS code will go.  Place JavaScript files in the `src/scripts` folder, and make sure they have the extension `.js`.  Place your CSS files in the `src/styles` folder and make sure they have the extension `.css`.  Files in these folders will be concatenated, minified, (for JS) transpiled, and (for CSS) autoprefixed, then sent to the `project` folder to be picked up by Tweego.  Also, only JavaScipt files in the `src/scripts` folder will be linted when you run the linter.
 
-The `src/modules` folder allows you to add scripts, styles, and HTML directly to the document's `<head>`. Things like Google analytics scripts, web libraries, and favicon code will go here. Code included in this way is not processed and is simply included as-is.
+The `src/modules` folder allows you to add scripts, styles, fonts, and more directly to the document's `<head>`. Things like Google analytics scripts, web libraries, and favicon code will go here. Code included in this way is not processed and is simply included as-is.
 
 The `vendor` folder is a place to put code that comes from other people.  For example, if you were using an add-on from the SugarCube site, or one of my custom macros, you'd paste the CSS and JS files in here.  You can mix them together; you don't need to use seperate folders for the CSS and JS files.
 
-Finally, there's the `HEAD.html` file.  You can add HTML code to your project's `<head>` using this file.  If you don't need it, just leave it blank.
+Finally, there's the `head-content.html` file.  You can add HTML code to your project's `<head>` using this file.  If you don't need it, just leave it blank.
 
 ### Usage (CLI)
 
