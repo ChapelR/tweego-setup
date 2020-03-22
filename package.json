@@ -28,9 +28,9 @@
   "author": "Chapel",
   "license": "Unlicense",
   "dependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-external-helpers": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
     "babel-preset-env": "^1.7.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^5.0.0",
@@ -41,7 +41,7 @@
     "gulp-jshint": "^2.1.0",
     "gulp-noop": "^1.0.0",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.2",
+    "jshint": "^2.11.0",
     "opn-cli": "^3.1.0"
   },
   "directories": {
