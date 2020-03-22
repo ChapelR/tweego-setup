@@ -1,5 +1,12 @@
 ## Changelog
 
+### v1.1.1
+
+Released: March 22, 2020
+
+- Fixed typo in gulpfile.
+- Updated dependencies.
+
 ### v1.1.0
 
 Released: May 13, 2019

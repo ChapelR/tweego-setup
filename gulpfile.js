@@ -1,3 +1,5 @@
+// jshint node : true, esversion : 6
+
 const gulp       = require('gulp'),
       concat     = require('gulp-concat'),
       uglify     = require('gulp-uglify'),
@@ -8,7 +10,7 @@ const gulp       = require('gulp'),
       csslint    = require('gulp-csslint'),
       noop       = require('gulp-noop'),
       config     = require('./src/config.json'),
-      browsers   = config.broswers;
+      browsers   = config.browsers;
 
 function processScripts (dir, out, name) {
     return gulp.src(dir)
