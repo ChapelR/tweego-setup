@@ -1,5 +1,12 @@
 ## Changelog
 
+### v2.0.2
+
+Released: December 9, 2020
+
+- `src/modules` needed a file in it to show up.
+- Updated dependencies.
+
 ### v2.0.1
 
 Released: March 22, 2020

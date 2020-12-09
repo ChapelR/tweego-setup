@@ -1,6 +1,6 @@
 {
   "name": "tweego-setup",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "./dist/index.html",
   "config": {
