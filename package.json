@@ -1,6 +1,6 @@
 {
   "name": "tweego-setup",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "./dist/index.html",
   "config": {
@@ -28,6 +28,11 @@
   "author": "Chapel",
   "license": "Unlicense",
   "dependencies": {
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-external-helpers": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
@@ -44,10 +49,6 @@
     "jshint": "^2.11.0",
     "opn-cli": "^3.1.0"
   },
-  "directories": {
-    "doc": "docs"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChapelR/tweego-setup.git"
@@ -55,5 +56,6 @@
   "bugs": {
     "url": "https://github.com/ChapelR/tweego-setup/issues"
   },
-  "homepage": "https://github.com/ChapelR/tweego-setup#readme"
+  "homepage": "https://github.com/ChapelR/tweego-setup#readme",
+  "private": true
 }
