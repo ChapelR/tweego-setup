@@ -5,6 +5,7 @@ const terserOptions = {
     // Terser options (https://github.com/terser/terser#minify-options)
 };
 const babelOptions = {
+    // Babel options (https://babeljs.io/docs/en/options)
     presets  : [['@babel/preset-env', {
         targets : [
             "> 1%",
@@ -18,7 +19,7 @@ const babelOptions = {
 };
 
 const files = {
-    // order is important
+    // if you choose to include lists of files, only the included files will be compiled!
     js : [
         // if order of files is important, list them here in the correct order
     ],
@@ -32,6 +33,8 @@ const jsPath = "src/scripts/";
 const cssPath = "src/styles/";
 // path to project files
 const outputPath = "project/compiled/";
+
+// you shouldn't need to change anything below this comment if you're just editing your compiling options!
 
 const jetpack = require("fs-jetpack");
 const CleanCSS = require("clean-css");

@@ -4,11 +4,13 @@
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "build.js",
   "scripts": {
-    "start" : "cd dist && http-server -c0",
+    "start" : "cd dist && http-server -c0 -o",
     "compile:src" : "node build.js",
     "compile:twee" : "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project",
     "watch:twee" : "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project -w",
-    "build" : "npm run compile:src && npm run compile:twee"
+    "testmode:twee" : "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project -t",
+    "build" : "npm run compile:src && npm run compile:twee",
+    "build:test" : "npm run compile:src && npm run testmode:twee"
   },
   "keywords": [
     "twine",
