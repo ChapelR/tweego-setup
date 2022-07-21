@@ -4,7 +4,7 @@
 
 This is the basic setup I use for creating Tweego projects.  It's here so I can clone it when I need it, but you may find it useful, too.
 
-**Note**: Before publishing a story, you'll want to change the ifid in the `project/twee/compiler-options.twee` file.  If you delete it and try to build, Tweego will spit out a new one for you.
+**Note**: When you compile your game for the first time, Tweego will throw an error. This is normal. It will complian that you don't have an IFID, and generate a new one for you. Take the number it gives you and add it to the `ifid` property in the `StoryData` passage in the `project/twee/compiler-options.twee` file. **Your game will NOT compile if you don't do this first!**
 
 ### Installing
 
