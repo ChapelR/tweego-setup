@@ -1,24 +1,13 @@
 {
   "name": "tweego-setup",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
-  "main": "./dist/index.html",
+  "main": "build.js",
   "config": {
     "format": "sugarcube-2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "open": "opn",
-    "gulp": "gulp",
-    "lint": "gulp lint",
-    "lint-js": "gulp lint",
-    "lint-css": "gulp validate",
-    "build": "gulp build && tweego -f $npm_package_config_format -m src/modules/ --head=src/head-content.html -o dist/index.html project && opn dist/index.html",
-    "testmode": "gulp build && tweego -f $npm_package_config_format -t -m src/modules/ --head=src/head-content.html -o dist/index.html project && opn dist/index.html",
-    "tweegobuild": "tweego -f $npm_package_config_format -m src/modules/ --head=src/modules/head-content.html -o dist/index.html project",
-    "build-win": "gulp build && tweego -f %npm_package_config_format% -m src/modules/ --head=src/head-content.html -o dist/index.html project && opn dist/index.html",
-    "testmode-win": "gulp build && tweego -f %npm_package_config_format% -t -m src/modules/ --head=src/head-content.html -o dist/index.html project && opn dist/index.html",
-    "tweegobuild-win": "tweego -f %npm_package_config_format% -m src/modules/ --head=src/head-content.html -o dist/index.html project"
+
   },
   "keywords": [
     "twine",
@@ -33,21 +22,7 @@
     "doc": "docs"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-external-helpers": "^7.8.3",
-    "@babel/preset-env": "^7.9.0",
-    "babel-preset-env": "^1.7.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-csslint": "^1.0.1",
-    "gulp-jshint": "^2.1.0",
-    "gulp-noop": "^1.0.0",
-    "gulp-uglify": "^3.0.2",
-    "jshint": "^2.11.0",
-    "opn-cli": "^3.1.0"
+
   },
   "repository": {
     "type": "git",
