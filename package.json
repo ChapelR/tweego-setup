@@ -3,11 +3,12 @@
   "version": "3.0.0",
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "build.js",
-  "config": {
-    "format": "sugarcube-2"
-  },
   "scripts": {
-
+    "start" : "cd dist && http-server -c0",
+    "compile:src" : "node build.js",
+    "compile:twee" : "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project",
+    "watch:twee" : "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project -w",
+    "build" : "npm run compile:src && npm run compile:twee"
   },
   "keywords": [
     "twine",
@@ -16,13 +17,16 @@
   ],
   "author": "Chapel",
   "license": "Unlicense",
-  "dependencies": {
-  },
   "directories": {
     "doc": "docs"
   },
   "devDependencies": {
-
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "clean-css": "^5.3.1",
+    "fs-jetpack": "^4.3.1",
+    "http-server": "^14.1.1",
+    "terser": "^5.14.2"
   },
   "repository": {
     "type": "git",
