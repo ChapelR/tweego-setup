@@ -19,7 +19,7 @@ Tweego setup is a project skeleton/boilerplate that is intended to make getting 
 #### For JavaScript:
 
 - **Transpiling to ES5**: [Babel](https://babeljs.io/) is a JavaScript code transpiler that takes modern ES6 JavaScript and converts it to older ES5 code that works on older browsers, allowing you to write your code in modern JS without sacrificing browser support.
-- **Minification**: A minifier compresses your code by shortening expressions, removing whitespace, and more to save on file size, which improves the speed pages load on the web. This project skeleton uses [Terser](https://github.com/terser/terser) for JavaScript compression.
+- **Minification**: A minifier compresses your code by shortening expressions, removing whitespace, and more to save on file size, which improves the speed at which pages load on the web. This project skeleton uses [Terser](https://github.com/terser/terser) for JavaScript compression.
 
 #### For CSS:
 
@@ -41,7 +41,7 @@ If you are new to writing code in an IDE and not sure what to use, I highly sugg
 
 ### Structure
 
-There are four main folders that you'll be working with here.  The first is the `dist` folder.  When you compile your project, it will get sent here as `dist/index.html`.  If you have external resources using relative links, like fonts, sounds, or images, you'll want to put them in here.
+There are three main folders that you'll be working with here.  The first is the `dist` folder.  When you compile your project, it will get sent here as `dist/index.html`.  If you have external resources using relative links, like fonts, sounds, or images, you'll want to put them in here.
 
 The `project` folder is where you'll edit your passages, and only your passages.  Your JavaScript and CSS code will wind up here eventually, but you won't write it here--just ignore the `compiled` directory. For scripts and styles that are already compiled and ready to include (e.g., one of my custom macro scripts) you can drop these files directly into the `project/compiled` directory.
 
