@@ -4,7 +4,7 @@
   "description": "A basic project setup for Tweego with all the trimmings using Node.",
   "main": "build.js",
   "scripts": {
-    "start": "cd dist && http-server -c0 -o",
+    "start": "cd dist && npx http-server -c0 -o",
     "compile:src": "node build.js",
     "compile:twee": "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project",
     "watch:twee": "tweego -o dist/index.html -m src/modules/ --head=\"src/head-content.html\" project -w",
