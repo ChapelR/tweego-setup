@@ -14,7 +14,7 @@ After getting all that squared away, clone or download this repo.  Open a comman
 
 ### Features
 
-Tweego setup is a project skeleton/boilerplate that is intended to make getting started with Tweego easier for novice users. It provides the following tools already setup and ready to go.
+Tweego Setup is a project skeleton/boilerplate that is intended to make getting started with Tweego easier for novice users. It provides the following tools already configured and ready to go.
 
 #### For JavaScript:
 
@@ -35,7 +35,7 @@ Tweego setup is a project skeleton/boilerplate that is intended to make getting 
 
 Linting has been removed from the new version of this repo. Linting is fraught and a lot of people have strong opinions about which linters to use and how to configure them. In general, if you are a novice, you are probably best served by setting up a linter in your IDE of choice. For example, here is [ESLint for VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), and here's [jshint for the same](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
 
-### IDE Recommendation
+### Recommended IDE for Tweego
 
 If you are new to writing code in an IDE and not sure what to use, I highly suggest using [VSCode](https://code.visualstudio.com/), an excellent all-around IDE for web development. VSCode also has a very powerful extension called [Twee 3 Language Tools](https://marketplace.visualstudio.com/items?itemName=cyrusfirheir.twee3-language-tools) that is ideal for working with Tweego.
 
@@ -71,15 +71,31 @@ At the top of the `build.js` file are a number of options you can alter.
 
 #### Files and File Paths
 
-...
+![](https://i.imgur.com/SVMEKPG.jpg)
+
+At the top of the script are two arrays (by default, they are empty), one for JS files, and one for CSS files. If you leave these empty, Tweego Setup will grab all the `.js` files from the `src/scripts` folder and all the `.css` files from the `src/styles` folder (subdirectories will be recursively searched as well), and they will be concatenated in the order provided by your operating system (*usually* alpha-numeric order). However, if you need your files to be compiled in a specific order, you will instead need to provide an array of file names to one or both of these.
+
+If you provide filenames to one of the arrays, the directory associated with that array will no longer be searched, and only files listed in the array will be compiled, so this is an all-or-nothing kind of thing, either the directories are searched recursively, or you provide all the file names. 
+
+By default, the files will be grabbed from the `src/scripts` and `src/styles` directories for each array, so if the file path is `src/scripts/test.js`, you only need to provide `test.js` in the array.
+
+![](https://i.imgur.com/tJJXjQF.jpg)
+
+You can alter the base file paths here, if you want to. By default, Tweego Setup looks for JavaScript in `src/scripts`, CSS in `src/styles`, and deposits the compiled files to `project/compiled` to be picked up by Tweego. You can change these defaults if you want to restructure the directories.
 
 #### Tooling Options
 
-...
+![](https://i.imgur.com/dDYbncm.jpg)
+
+Most of the tools used by Tweego Setup have configuration options that can be altered. You edit those options here, as plain objects. Visit the provided URLs to see documentation regarding the options for each tool.
 
 #### Changing Story Formats
 
-...
+![](https://i.imgur.com/btJGIMc.jpg)
+
+You can change the story format used to compile your project in the `project/twee/compiler-options.twee` file. This file contains [a passage named `StoryData`](https://www.motoslave.net/tweego/docs/#special-passages-storydata) that accepts plain JSON. You can change the story format and version to a different one Tweego has access to from here. Use the command `tweego --list-formats` from the command line to see a list of available formats.
+
+**Note**: When you compile your game for the first time, Tweego will throw an error. This is normal. It will complian that you don't have an IFID, and generate a new one for you. Take the number it gives you and add it to the `ifid` property in the `StoryData` passage in the `project/twee/compiler-options.twee` file. **Your game will NOT compile if you don't do this first!**
 
 ### Donations
 
