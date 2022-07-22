@@ -12,6 +12,33 @@ You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweeg
 
 After getting all that squared away, clone or download this repo.  Open a command prompt and navigate to the repo's root directory (where the `package.json` file is) and run the command `npm install`.  This may take a couple of minutes, just let it go.  After that, everything should be ready to go.
 
+### Features
+
+Tweego setup is a project skeleton/boilerplate that is intended to make getting started with Tweego easier for novice users. It provides the following tools already setup and ready to go.
+
+#### For JavaScript:
+
+- **Transpiling to ES5**: [Babel](https://babeljs.io/) is a JavaScript code transpiler that takes modern ES6 JavaScript and converts it to older ES5 code that works on older browsers, allowing you to write your code in modern JS without sacrificing browser support.
+- **Minification**: A minifier compresses your code by shortening expressions, removing whitespace, and more to save on file size, which improves the speed pages load on the web. This project skeleton uses [Terser](https://github.com/terser/terser) for JavaScript compression.
+
+#### For CSS:
+
+- **Auto-prefixing**: Some CSS properties require vendor prefixes to work in certain browsers. This project skeleton will use [autoprefixer](https://github.com/postcss/autoprefixer) to automatically determine which prefixes your CSS code needs and add them for you.
+- **Minification**: A minifier compresses your code by combining rules where possible and removing spaces and newlines to make code as lightweight as possible. This project skeleton uses [Clean-CSS](https://github.com/clean-css/clean-css) for CSS minification.
+
+#### Additional stuff:
+
+- **NPM Scripts**: A set of NPM scripts to run all the necessary commands to test and build your project.
+- **Localhost Server**: Includes [http-server](https://github.com/http-party/http-server) to allow you to run a simple localhost server to test your game if you need it.
+
+#### Linting
+
+Linting has been removed from the new version of this repo. Linting is fraught and a lot of people have strong opinions about which linters to use and how to configure them. In general, if you are a novice, you are probably best served by setting up a linter in your IDE of choice. For example, here is [ESLint for VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), and here's [jshint for the same](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+
+### IDE Recommendation
+
+If you are new to writing code in an IDE and not sure what to use, I highly suggest using [VSCode](https://code.visualstudio.com/), an excellent all-around IDE for web development. VSCode also has a very powerful extension called [Twee 3 Language Tools](https://marketplace.visualstudio.com/items?itemName=cyrusfirheir.twee3-language-tools) that is ideal for working with Tweego.
+
 ### Structure
 
 There are four main folders that you'll be working with here.  The first is the `dist` folder.  When you compile your project, it will get sent here as `dist/index.html`.  If you have external resources using relative links, like fonts, sounds, or images, you'll want to put them in here.
@@ -38,9 +65,21 @@ The following scripts are run from the command line.  Simply navigate to the pro
 
 On Windows, you can double-click the `build.bat` file to run `npm run build` for you without needing to use the terminal.
 
-### Configuration Settings:
+### Configuration Settings
 
 At the top of the `build.js` file are a number of options you can alter.
+
+#### Files and File Paths
+
+...
+
+#### Tooling Options
+
+...
+
+#### Changing Story Formats
+
+...
 
 ### Donations
 

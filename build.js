@@ -1,3 +1,21 @@
+// list of javascript and CSS files (optional)
+// leave the arrays empty and the files in the relevant folders will be compiled in the order provided by the OS
+const files = {
+    // if you choose to include lists of files, only the included files will be compiled!
+    js : [
+        // if order of files is important, list them here in the correct order
+    ],
+    css : [
+        // if order of files is important, list them here in the correct order
+    ]
+};
+
+// paths to directories containing raw source files
+const jsPath = "src/scripts/";
+const cssPath = "src/styles/";
+// path to project files
+const outputPath = "project/compiled/";
+
 const cleanCssOptions = {
     // CleanCSS options (https://github.com/clean-css/clean-css#constructor-options)
 };
@@ -18,25 +36,11 @@ const babelOptions = {
     }]]
 };
 
-const files = {
-    // if you choose to include lists of files, only the included files will be compiled!
-    js : [
-        // if order of files is important, list them here in the correct order
-    ],
-    css : [
-        // if order of files is important, list them here in the correct order
-    ]
-};
-
-// paths to directories containing raw source files
-const jsPath = "src/scripts/";
-const cssPath = "src/styles/";
-// path to project files
-const outputPath = "project/compiled/";
-
 // you shouldn't need to change anything below this comment if you're just editing your compiling options!
 
 const jetpack = require("fs-jetpack");
+const postcss = require("postcss");
+const autoprefixer = require("autoprefixer");
 const CleanCSS = require("clean-css");
 const Terser = require("terser");
 const Babel = require('@babel/core');
@@ -50,7 +54,10 @@ function compileCSS () {
             return jetpack.read(fileName);
         }).join("\n\n");
 
-    jetpack.write(`${outputPath}build.css`, new CleanCSS(cleanCssOptions).minify(css).styles, { atomic : true });
+    postcss([ autoprefixer ]).process(css, { from : undefined }).then(result => {
+        result.warnings().forEach( warn => console.warn(warn.text) );
+        jetpack.write(`${outputPath}build.css`, new CleanCSS(cleanCssOptions).minify(result.css).styles, { atomic : true });
+    });
 }
 
 function compileJS () {
