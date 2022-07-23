@@ -1,5 +1,7 @@
 ## Basic Tweego Setup
 
+> Please note: This older branch of the repo is not updated anymore. It's highly recommended you use Tweego 2 for new projects, and the `tweego-2` branch of this repo.
+
 - [Changelog](docs/changelog.md)  
 - [Updating Instructions](docs/updating.md)
 
