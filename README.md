@@ -60,7 +60,7 @@ The following scripts are run from the command line.  Simply navigate to the pro
 * `npm run build:test`: As `npm run build`, but compiles your story in test mode.
 * `npm run compile:src`: This command only runs the non-Tweego portion of the build process. Probably not very useful.
 * `npm run compile:twee`: This command only runs the Tweego portion of the build process, so files from `src` aren't added in.  Useful for building faster when you're only working on TwineScript.
-* `npm run watch:twee`: As t`npm run compile:twee`, only compiles the Tweego portion, but does so in watch mode.
+* `npm run watch:twee`: As `npm run compile:twee`, only compiles the Tweego portion, but does so in watch mode.
 * `npm run test:twee`: As `npm run compile:twee`, only compiles the Tweego portion, but does so in test mode.
 
 On Windows, you can double-click the `build.bat` file to run `npm run build` for you without needing to use the terminal.
