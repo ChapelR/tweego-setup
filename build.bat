@@ -1,3 +1,2 @@
 @echo off
-call npm run build-win
-pause
+call npm run build

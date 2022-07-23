@@ -1,121 +1,101 @@
-## Basic Tweego Setup
-
-- [Changelog](docs/changelog.md)  
-- [Updating Instructions](docs/updating.md)
+## Basic Tweego Setup (v3)
 
 > If you want to use Tweego v1.x, you'll want to switch to the `tweego-1` branch of this repo.
 
 This is the basic setup I use for creating Tweego projects.  It's here so I can clone it when I need it, but you may find it useful, too.
 
-For information on why you may want to use this repo, [look here](docs/why-use-this.md).
-
-**Note**: Before publishing a story, you'll want to change the ifid in the `project/twee/compiler-options.twee` file.  If you delete it and try to build, Tweego will spit out a new one for you.
+**Note**: When you compile your game for the first time, Tweego will throw an error. This is normal. It will complian that you don't have an IFID, and generate a new one for you. Take the number it gives you and add it to the `ifid` property in the `StoryData` passage in the `project/twee/compiler-options.twee` file. **Your game will NOT compile if you don't do this first!**
 
 ### Installing
 
-You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweego.md) installed.  Click the links to find my step-by-step instructions (with pictures) on how to do this on Windows systems.  You will need to combine my instructions with a bit of Googling to get these working on other OSes.  You may also wish to globally install [Gulp](docs/installing-gulp.md) (v4.0.0 or later), but this is optional.
+You'll need [NodeJS](docs/installing-node.md) and [Tweego](docs/installing-tweego.md) installed.  Click the links to find my step-by-step instructions (with pictures) on how to do this on Windows systems.  You will need to combine my instructions with a bit of Googling to get these working on other OSes.
 
 After getting all that squared away, clone or download this repo.  Open a command prompt and navigate to the repo's root directory (where the `package.json` file is) and run the command `npm install`.  This may take a couple of minutes, just let it go.  After that, everything should be ready to go.
 
+### Features
+
+Tweego Setup is a project skeleton/boilerplate that is intended to make getting started with Tweego easier for novice users. It provides the following tools already configured and ready to go.
+
+#### For JavaScript:
+
+- **Transpiling to ES5**: [Babel](https://babeljs.io/) is a JavaScript code transpiler that takes modern ES6 JavaScript and converts it to older ES5 code that works on older browsers, allowing you to write your code in modern JS without sacrificing browser support.
+- **Minification**: A minifier compresses your code by shortening expressions, removing whitespace, and more to save on file size, which improves the speed at which pages load on the web. This project skeleton uses [Terser](https://github.com/terser/terser) for JavaScript compression.
+
+#### For CSS:
+
+- **Auto-prefixing**: Some CSS properties require vendor prefixes to work in certain browsers. This project skeleton will use [autoprefixer](https://github.com/postcss/autoprefixer) to automatically determine which prefixes your CSS code needs and add them for you.
+- **Minification**: A minifier compresses your code by combining rules where possible and removing spaces and newlines to make code as lightweight as possible. This project skeleton uses [Clean-CSS](https://github.com/clean-css/clean-css) for CSS minification.
+
+#### Additional stuff:
+
+- **NPM Scripts**: A set of NPM scripts to run all the necessary commands to test and build your project.
+- **Localhost Server**: Includes [http-server](https://github.com/http-party/http-server) to allow you to run a simple localhost server to test your game if you need it.
+
+#### Linting
+
+Linting has been removed from the new version of this repo. Linting is fraught and a lot of people have strong opinions about which linters to use and how to configure them. In general, if you are a novice, you are probably best served by setting up a linter in your IDE of choice. For example, here is [ESLint for VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), and here's [jshint for the same](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+
+### Recommended IDE for Tweego
+
+If you are new to writing code in an IDE and not sure what to use, I highly suggest using [VSCode](https://code.visualstudio.com/), an excellent all-around IDE for web development. VSCode also has a very powerful extension called [Twee 3 Language Tools](https://marketplace.visualstudio.com/items?itemName=cyrusfirheir.twee3-language-tools) that is ideal for working with Tweego.
+
 ### Structure
 
-There are four main folders that you'll be working with here.  The first is the `dist` folder.  When you compile your project, it will get sent here as `dist/index.html`.  If you have external resources using relative links, like fonts, sounds, or images, you'll want to put them in here.
+There are three main folders that you'll be working with here.  The first is the `dist` folder.  When you compile your project, it will get sent here as `dist/index.html`.  If you have external resources using relative links, like fonts, sounds, or images, you'll want to put them in here.
 
-The `project` folder is where you'll edit your passages, and only your passages.  Your JavaScript and CSS code will wind up here eventually, but you won't write it here--just ignore the `project/styles` and `project/scripts` folders entirely.
+The `project` folder is where you'll edit your passages, and only your passages.  Your JavaScript and CSS code will wind up here eventually, but you won't write it here--just ignore the `compiled` directory. For scripts and styles that are already compiled and ready to include (e.g., one of my custom macro scripts) you can drop these files directly into the `project/compiled` directory.
 
-The `src` folder is where your custom JavaScript and CSS code will go.  Place JavaScript files in the `src/scripts` folder, and make sure they have the extension `.js`.  Place your CSS files in the `src/styles` folder and make sure they have the extension `.css`.  Files in these folders will be concatenated, minified, (for JS) transpiled, and (for CSS) autoprefixed, then sent to the `project` folder to be picked up by Tweego.  Also, only JavaScipt files in the `src/scripts` folder will be linted when you run the linter.
+The `src` folder is where your custom JavaScript and CSS code will go.  Place JavaScript files in the `src/scripts` folder, and make sure they have the extension `.js`.  Place your CSS files in the `src/styles` folder and make sure they have the extension `.css`.  Files in these folders will be concatenated, minified, (for JS) transpiled, and (for CSS) autoprefixed, then sent to the `project` folder to be picked up by Tweego.
 
 The `src/modules` folder allows you to add scripts, styles, fonts, and more directly to the document's `<head>`. Things like Google analytics scripts, web libraries, and favicon code will go here. Code included in this way is not processed and is simply included as-is.
-
-The `vendor` folder is a place to put code that comes from other people.  For example, if you were using an add-on from the SugarCube site, or one of my custom macros, you'd paste the CSS and JS files in here.  You can mix them together; you don't need to use seperate folders for the CSS and JS files.
 
 Finally, there's the `head-content.html` file.  You can add HTML code to your project's `<head>` using this file.  If you don't need it, just leave it blank.
 
 ### Usage (CLI)
 
-The following scripts are run from the command line.  Simply navigate to the project's root directory and type in the appropriate command.  Note that windows is weird, and some commands require you to type `-win` after them to get them to work on Windows systems.  However, on Windows systems you also get a collection of batch files to run the scripts for you, so it all works out.
+The following scripts are run from the command line.  Simply navigate to the project's root directory and type in the appropriate command. 
 
-* `npm config set tweego-setup:format NAME`: You can use this command to set which format Tweego should use to compile.  By default, it's SugarCube 2.  You need to enter the format name as you would to Tweego, so it's based on what you have the format called on your computer.  For example, `npm config set tweego-setup:format harlowe-2` would probably change the format to Harlowe v2.1.0.
-* `npm run build` or `npm run build-win`: Packages up all your CSS and JS code, then compiles the project and opens it in your default browser.  You'll need to use the second version on Windows systems.
-* `npm run testmode` or `npm run testmode-win`: As `npm run build`, but compiles your story in test mode.
-* `npm run tweegobuild` or `npm run tweegobuild-win`: This command only runs the Tweego portion of the build process, so files from `src` aren't added in.  Useful for building faster when you're only working on TwineScript.
-* `npm run gulp build`: Only re-packages the JavaScript and CSS files, but does **not** actually compile the story.  Probably not useful.
-* `npm run lint` or `npm run lint-js`: Runs the JavaScript linter on any JavaScript files found in the `src/scripts` folder and reports the results for debugging.  You will want this if you do basically any coding in JavaScript at all, trust me.  
-* `npm run lint-css`: Runs the CSS linter, which tests for bugs and errors in your CSS files, similar to the JavaScript linter.
+* `npm start`: Starts up a simple localhost test server. Not needed for all projects.
+* `npm run build`: Compiles your JS and CSS, then compiles everything with Tweego and drops the compiled file in the `dist` folder.
+* `npm run build:test`: As `npm run build`, but compiles your story in test mode.
+* `npm run compile:src`: This command only runs the non-Tweego portion of the build process. Probably not very useful.
+* `npm run compile:twee`: This command only runs the Tweego portion of the build process, so files from `src` aren't added in.  Useful for building faster when you're only working on TwineScript.
+* `npm run watch:twee`: As t`npm run compile:twee`, only compiles the Tweego portion, but does so in watch mode.
+* `npm run test:twee`: As `npm run compile:twee`, only compiles the Tweego portion, but does so in test mode.
 
-### Usage (batch files - Windows only)
+On Windows, you can double-click the `build.bat` file to run `npm run build` for you without needing to use the terminal.
 
-If you're on a Windows OS, a number of batch files are included to run these scripts for you without you needing to open a command prompt or (shudder) type things.  These are useless to you on other operating systems and can safely be deleted.
+### Configuration Settings
 
-* `build.bat`: Runs `npm run build-win` for you.
-* `build-test.bat`: Runs `npm run testmode-win` for you.
-* `format.bat`: Lets you quickly see what formats Tweego has access to and change between them.  Roughly equivalent to `npm config set tweego-setup:format NAME` but more user-friendly.
-* `lint-js.bat`: Runs `npm run lint-js` for you.
-* `lint-css.bat`: Runs `npm run lint-css` for you.
+At the top of the `build.js` file are a number of options you can alter.
 
-### Configuration Settings:
+#### Files and File Paths
 
-The `src/config.json` file contains configuration options you may want to alter.  It looks like this:
+![](https://i.imgur.com/SVMEKPG.jpg)
 
-```json
-{
+At the top of the script are two arrays (by default, they are empty), one for JS files, and one for CSS files. If you leave these empty, Tweego Setup will grab all the `.js` files from the `src/scripts` folder and all the `.css` files from the `src/styles` folder (subdirectories will be recursively searched as well), and they will be concatenated in the order provided by your operating system (*usually* alpha-numeric order). However, if you need your files to be compiled in a specific order, you will instead need to provide an array of file names to one or both of these.
 
-    "javascript": {
-        "minify": true,
-        "transpile": true
-    },
+If you provide filenames to one of the arrays, the directory associated with that array will no longer be searched, and only files listed in the array will be compiled, so this is an all-or-nothing kind of thing, either the directories are searched recursively, or you provide all the file names. 
 
-    "css": {
-        "minify": true,
-        "autoprefix": true
-    },
+By default, the files will be grabbed from the `src/scripts` and `src/styles` directories for each array, so if the file path is `src/scripts/test.js`, you only need to provide `test.js` in the array.
 
-    "directories": {
-        "user-js": "./src/scripts/**/*.js",
-        "user-css": "./src/styles/**/*.css",
-        "vendor-js": "./vendor/**/*.js",
-        "vendor-css": "./vendor/**/*.css",
-        
-        "out-js": "./project/scripts",
-        "out-css": "./project/styles",
+![](https://i.imgur.com/tJJXjQF.jpg)
 
-        "vendor-file-js": "bundle.min.js",
-        "vendor-file-css": "bundle.min.css",
-        "user-file-js": "user.min.js",
-        "user-file-css": "user.min.css"
-    },
+You can alter the base file paths here, if you want to. By default, Tweego Setup looks for JavaScript in `src/scripts`, CSS in `src/styles`, and deposits the compiled files to `project/compiled` to be picked up by Tweego. You can change these defaults if you want to restructure the directories.
 
-    "browsers": [
-        "> 1%",
-        "last 3 versions",
-        "last 10 Chrome versions",
-        "last 10 Firefox versions",
-        "IE >= 9",
-        "Opera >= 12"
-    ]
-    
-}
-```
+#### Tooling Options
 
-**JavaScript Options:**
+![](https://i.imgur.com/dDYbncm.jpg)
 
-* `minify`: set this to `false` if you don't want your scripts to be minified.
-* `transpile`: if you write code in ES6 syntax, it is automatically transpiled to ES5 giving you better browser support.  you can shut this feature off.  note that doing so may cause the minifier to stop working.
+Most of the tools used by Tweego Setup have configuration options that can be altered. You edit those options here, as plain objects. Visit the provided URLs to see documentation regarding the options for each tool.
 
-**CSS Options:**
+#### Changing Story Formats
 
-* `minify`: set this to `false` if you don't want your CSS to be minified.
-* `autoprefix`: vendor prefixes will be automatically added for you to maximize browser support.  you can shut this off if you want to.
+![](https://i.imgur.com/btJGIMc.jpg)
 
-**Directory Options:**
+You can change the story format used to compile your project in the `project/twee/compiler-options.twee` file. This file contains [a passage named `StoryData`](https://www.motoslave.net/tweego/docs/#special-passages-storydata) that accepts plain JSON. You can change the story format and version to a different one Tweego has access to from here. Use the command `tweego --list-formats` from the command line to see a list of available formats.
 
-The first four options here tell the build process where to find your scripts and styles.  You can change the locations of your folders around using these options.  You can also change these options to arrays of strings that resolve to individual file paths to load your code in a specific order--the default order is whatever your OS uses (usually alphanumeric).
-
-The second chunk of options allows you to change where built scripts should be put and what their file names should be.
-
-**Browsers:**
-
-A list of target browsers, using [browserlist-style queries](https://github.com/browserslist/browserslist), that you want to target. This effects what the transpiler and autoprefixers do. The defaults set here are copied directly from SugarCube's browserlist, to maintain parity and avoid giving up any browser support, but you may want to change this.
+**Note**: When you compile your game for the first time, Tweego will throw an error. This is normal. It will complian that you don't have an IFID, and generate a new one for you. Take the number it gives you and add it to the `ifid` property in the `StoryData` passage in the `project/twee/compiler-options.twee` file. **Your game will NOT compile if you don't do this first!**
 
 ### Donations
 
